@@ -22,3 +22,7 @@ variable "environment" {
   default = "Environment Name"
   type        = string
 }
+
+variable "vpc_cidr" {
+  type = string
+}

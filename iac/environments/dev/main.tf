@@ -11,3 +11,11 @@ module "certificate_manager" {
   source = "../../modules/certificate_manager"
   domain_name = var.domain_name
 }
+
+
+module "vpc" {
+  source = "../../modules/vpc"
+
+  environment = var.environment
+  vpc_cidr    = var.vpc_cidr
+}
