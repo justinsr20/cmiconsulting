@@ -1,7 +1,8 @@
+
 resource "aws_ecs_service" "app" {
   name            = "my-app-service"
-  cluster         = aws_ecs_cluster.main.id
-  task_definition = aws_ecs_task_definition.app.arn
+  cluster         = var.shared_aws_ecs_cluster_id
+  task_definition = aws_ecs_task_definition.app_canary.arn
   desired_count   = 2
 
   capacity_provider_strategy {
@@ -16,12 +17,8 @@ resource "aws_ecs_service" "app" {
   }
 
   load_balancer {
-    target_group_arn = aws_lb_target_group.app.arn
+    target_group_arn = var.shared_aws_lb_target_group_arn
     container_name   = "my-app"
     container_port   = 8080
   }
-
-  depends_on = [
-    aws_lb_listener.http
-  ]
 }

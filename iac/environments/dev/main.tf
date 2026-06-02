@@ -28,7 +28,7 @@ module "ecs" {
 module "ec2" {
   source = "../../modules/ec2"
   public_subnet_ids = module.vpc.public_subnet_ids
-  vpc_id = module.vpc.app_vpc.id
+  vpc_id = module.vpc.shared_vpc.id
 }
 
 module "iam" {
