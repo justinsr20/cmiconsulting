@@ -21,3 +21,11 @@ variable "shared_aws_lb_target_group_arn" {
 variable "shared_aws_ecs_cluster_id" {
   type = string
 }
+
+variable "shared_alb_dns_name" {
+  type = string
+}
+
+variable "shared_alb_zone_id" {
+  type = string
+}

@@ -23,3 +23,15 @@ output "shared_aws_lb_target_group_arn" {
 output "shared_vpc_id" {
   value = module.vpc.shared_vpc.id
 }
+
+output "shared_route_53_zone_name" {
+  value = module.route_53.route_53_zone.name
+}
+
+output "shared_alb_dns_name" {
+  value = module.ec2.shared_alb.dns_name
+}
+
+output "shared_alb_zone_id" {
+  value = module.ec2.shared_alb.zone_id
+}
